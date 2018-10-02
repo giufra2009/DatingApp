@@ -46,6 +46,7 @@ namespace DatingApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+                          
                 var userFronRepo=await _repo.Login(userForLoginDto.Username.ToLower(),userForLoginDto.Password);
 
                 if(userFronRepo==null)
@@ -75,7 +76,8 @@ namespace DatingApp.API.Controllers
 
                 return Ok(new {
                         token= tokenHandler.WriteToken(token)
-                });
+                });  
+            
         }
     }
 }
